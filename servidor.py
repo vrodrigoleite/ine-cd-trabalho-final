@@ -7,7 +7,7 @@ HOST = 'localhost'
 class Server:
     def __init__(self, port):
         self.db = {}                    # Banco de dados local: item -> (valor, versão)
-        self.lock = threading.Lock()    # Proteção de concorrência
+        self.lock = threading.Lock()    # Proteção de concorrência !!!!
         self.port = port                # Porta onde o servidor escuta conexões
 
     def certifica(self, tx):

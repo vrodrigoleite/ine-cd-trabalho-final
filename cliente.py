@@ -17,11 +17,11 @@ class Client:
         # Verifica se o item já foi escrito localmente
         for item, val in reversed(self.ws):
             if item == x:
-                resposta = {'item': x, 'value': val, 'version': -1}
+                resposta = {'item': x, 'value': val, 'version': -1} # versão -1 marca leitura local
                 # Simula versão fictícia para manter consistência
-                self.rs.append((x, val, -1))  # versão -1 marca leitura local
+                self.rs.append((resposta['item'], resposta['value'], resposta['version']))  
                 print(f"Cliente {self.client_id} leu {resposta} do ws")
-                return val
+                return resposta['value']
 
         # Seleciona um servidor aleatório
         servidor = random.choice(SERVERS)
