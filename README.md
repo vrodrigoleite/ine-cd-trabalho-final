@@ -6,10 +6,13 @@ Este projeto implementa o protocolo **Deferred Update Replication (DUR)** com ba
 
 ```
 .
-├── cliente.py # Implementação do Algoritmo 3 (Cliente DUR)
-├── servidor.py # Implementação do Algoritmo 4 (Servidor DUR)
-├── sequenciador.py # Difusão atômica das transações para os servidores
-├── teste_concorrencia.py # Execução de 4 testes concorrentes simultâneos
+├── cliente/
+│   └── cliente.py       # Implementação do Algoritmo 3 (Cliente DUR)
+├── servidor/
+│   └── servidor.py      # Implementação do Algoritmo 4 (Servidor DUR)
+├── sequenciador/
+│   └── sequenciador.py  # Difusão ordenada das transações para os servidores
+├── teste_concorrencia.py # Execução de 5 testes concorrentes simultâneos
 ├── README.md            # Este documento
 ```
 
@@ -30,7 +33,7 @@ Esse script:
 
 * Inicia 2 servidores replicados
 * Inicia o sequenciador
-* Executa 4 testes de concorrência com múltiplos clientes
+* Executa 5 testes de concorrência com múltiplos clientes
 
 ## 🔬 Testes Implementados
 
@@ -49,10 +52,16 @@ Esse script:
 * Uma transação lê `z`, enquanto outra já escreveu
 * A segunda deve ser abortada
 
-### ✅ Teste 4 - Três clientes concorrentes sobre o mesmo item (`m`)
+### ✅ Teste 4 - Três transações sobre o mesmo item (`m`)
 
 * Escritas escalonadas e não sincronizadas
 * Certificação controla quais commits são aceitos
+
+### ✅ Teste 5 - Leitura local após escrita (`k`)
+
+* Cliente escreve em `k` e depois lê `k` na mesma transação
+* A leitura deve ser feita diretamente do `write set` local (sem acesso ao servidor)
+* Confirma que a coerência da transação é mantida internamente
 
 ## 🧠 Organização do Código
 
