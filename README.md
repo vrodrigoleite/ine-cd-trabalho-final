@@ -6,14 +6,11 @@ Este projeto implementa o protocolo **Deferred Update Replication (DUR)** com ba
 
 ```
 .
-├── cliente/
-│   └── cliente.py       # Implementação do Algoritmo 3 (Cliente DUR)
-├── servidor/
-│   └── servidor.py      # Implementação do Algoritmo 4 (Servidor DUR)
-├── sequenciador/
-│   └── sequenciador.py  # Difusão ordenada das transações para os servidores
+├── cliente.py            # Implementação do Algoritmo 3 (Cliente DUR)
+├── servidor.py           # Implementação do Algoritmo 4 (Servidor DUR)
+├── sequenciador.py       # Difusão ordenada das transações para os servidores
 ├── teste_concorrencia.py # Execução de 5 testes concorrentes simultâneos
-├── README.md            # Este documento
+├── README.md             # Este documento
 ```
 
 ## 🚀 Como Executar
