@@ -29,7 +29,7 @@ class Server:
     def trata_mensagem(self, conn):
 
         # Trata uma mensagem recebida via socket TCP
-        m = conn.recv(4096)
+        m = conn.recv(4096)                             # Equivalente a primitiva receive()  
 
         if not m:
             return

@@ -31,10 +31,10 @@ class Client:
 
             # Envia requisição de leitura
             m = {'type': 'read', 'item': x}
-            s.sendall(json.dumps(m).encode())
+            s.sendall(json.dumps(m).encode())                   # Equivalente a primitiva send()
 
             # Recebe resposta com valor e versão
-            resposta = json.loads(s.recv(4096).decode())
+            resposta = json.loads(s.recv(4096).decode())        # Equivalente a primitiva receive()
             self.rs.append((resposta['item'], resposta['value'], resposta['version']))
             print(f"Cliente {self.client_id} leu {resposta} do servidor {servidor}")
             return resposta['value']
